@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urheilu lisäravinteet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Urheilu lisäravinteet</h1>
+      <nav>
+        <a href="#">Etusivu</a>
+        <a href="#">Lisäravinteet</a>
+        <a href="#">Yhteystiedot</a>
+        <a href="#">Lisää meistä</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <section class="content-section">
+      <h2>Tervetuloa sivuillemme</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+      <p>Tänne lisää sisältöä seuraavina viikkoina. </p>
+      <button id="openDialog" class="login-btn">Kirjaudu</button>
+    </section>
+    
+    <!-- Absoluuttisesti positioitu kuva kahden osion välissä -->
+    <div class="floating-image-container">
+      <img src="whey-removebg-preview.png" alt="Proteiinijauhekuva">
+    </div>
+    
+    <section class="about-section">
+      <h2>LISÄÄ MEISTÄ</h2>
+      <div class="about-content">
+        <div class="about-image"></div>
+        <h3>Tämä on meidän tarinamme</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste soluta voluptatem commodi magnam amet molestias nostrum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright &copy; Mä 2025</p>
+  </footer>
+
+  <!-- Login Dialog -->
+  <!-- Login Dialog -->
+<dialog id="loginDialog">
+  <!-- Add close button -->
+  <button class="close-btn" aria-label="Sulje">✕</button>
+  
+  <form method="dialog" class="login-form">
+    <h2>Kirjaudu sisään</h2>
+
+    <label for="name">Nimi:</label>
+    <input type="text" id="name" name="name" minlength="3" required>
+
+    <label for="email">Sähköposti:</label>
+    <input type="email" id="email" name="email" pattern=".+@metropolia\.fi$" required>
+
+    <label for="password">Salasana:</label>
+    <input type="password" id="password" name="password"
+      pattern="(?=.*[A-Z])(?=.*[0-9]).{6,}" required>
+
+    <menu>
+      <button value="cancel" class="cancel-btn">Peruuta</button>
+      <button value="submit" class="submit-btn">Kirjaudu</button>
+    </menu>
+  </form>
+  
+
+</dialog>
+  <script>
+    const dialog = document.getElementById('loginDialog');
+document.getElementById('openDialog').addEventListener('click', () => dialog.showModal());
+
+// Add close button functionality
+const closeBtn = document.querySelector('.close-btn');
+closeBtn.addEventListener('click', () => {
+  dialog.close();
+});
+
+// Add dance button functionality
+const danceBtn = document.getElementById('danceBtn');
+danceBtn.addEventListener('click', () => {
+  // Toggle dance animation on the dialog
+  dialog.classList.toggle('dancing');
+  
+  // Optional: Stop dancing after 3 seconds
+  if (dialog.classList.contains('dancing')) {
+    setTimeout(() => {
+      dialog.classList.remove('dancing');
+    }, 3000);
+  }
+});
+  </script>
+</body>
+</html>
